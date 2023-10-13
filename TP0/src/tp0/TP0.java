@@ -19,7 +19,7 @@ public class TP0 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Please enter the operator:\n" +
+        System.out.println("Entrez l'opérateur souhaitez :\n" +
 "1) add\n" +
 "2) substract\n" +
 "3) multiply\n" +
@@ -34,12 +34,12 @@ public class TP0 {
                 System.exit(0);}
        
         Scanner saisieUtilisateur1 = new Scanner(System.in);
-        System.out.println("Please enter a number: ");
+        System.out.println("Entrez un nombre: ");
         float ent1 = saisieUtilisateur1.nextInt();
         Scanner operande1 = saisieUtilisateur1;
        
         Scanner saisieUtilisateur2 = new Scanner(System.in);
-        System.out.println("Please enter a number: ");
+        System.out.println("Entrez un nombre: ");
         float ent2 = saisieUtilisateur2.nextInt();
         Scanner operande2 = saisieUtilisateur2;
        
