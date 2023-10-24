@@ -7,6 +7,12 @@
  */
 package tp3_heroic_fantasy_friez;
 
+import Armes.Epee;
+import Armes.Baton;
+import Armes.Arme;
+import Personnage.Guerrier;
+import Personnage.Magicien;
+import Personnage.Personnage;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +25,24 @@ public class TP3_Heroic_Fantasy_FRIEZ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    ArrayList <Personnage> personnage= new ArrayList <>();
+        
+       
+        Magicien magicien1 = new Magicien("Gandalf", 65, true);
+        Magicien magicien2 = new Magicien("Garcimore", 44, false);
+        Guerrier guerrier1 = new Guerrier("Conan", 78, false);
+        Guerrier guerrier2 = new Guerrier("Lannister", 45, true);
+        
+        personnage.add(magicien1);
+        personnage.add(magicien2);
+        personnage.add(guerrier1);
+        personnage.add(guerrier2);
+        
+        for (int j = 0; j < personnage.size(); j++) {
+            Personnage personnage = personnages.get(j);
+            System.out.println("Personnage " + (j + 1) + ": " + personnage);
+        }
+        
         ArrayList <Arme> armes = new ArrayList<>();
         
         Epee epee1 = new Epee("Excalibur", 7, 5);
@@ -38,4 +62,4 @@ public class TP3_Heroic_Fantasy_FRIEZ {
       }
     }
     
-}
+    }
