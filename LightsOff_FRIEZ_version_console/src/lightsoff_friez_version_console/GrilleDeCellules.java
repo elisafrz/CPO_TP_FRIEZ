@@ -25,6 +25,12 @@ public GrilleDeCellules(int lignes, int colonnes) {
     }
 }
 
+public void activerCellule(int ligne, int colonne) {  // Méthode pour activer une cellule spécifique
+        if (ligne >= 0 && ligne < matriceCellules.length && colonne >= 0 && colonne < matriceCellules[0].length) {
+            matriceCellules[ligne][colonne].allumer();
+        }
+    }
+
  public void activerLigneDeCellules(int idLigne) { // Méthode pour activer une ligne de cellules
         for (int j = 0; j < matriceCellules[idLigne].length; j++) {
             matriceCellules[idLigne][j].allumer();
@@ -88,6 +94,25 @@ public GrilleDeCellules(int lignes, int colonnes) {
                 activerColonneDeCellules(colonne);
             }
         }
+    }
+    
+    public int getLignes() { // Méthode pour obtenir le nombre de lignes
+        return matriceCellules.length;
+    }
+    
+    public int getColonnes() { // Méthode pour obtenir le nombre de colonnes
+        return matriceCellules.length;
+    }
+    
+    public boolean toutesLesCellulesAllumees() {  // Méthode pour vérifier si toutes les cellules sont allumées
+        for (int i = 0; i < matriceCellules.length; i++) {
+            for (int j = 0; j < matriceCellules[i].length; j++) {
+                if (!matriceCellules[i][j].estAllumee()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
