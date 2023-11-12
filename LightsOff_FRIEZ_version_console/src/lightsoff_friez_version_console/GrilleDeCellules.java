@@ -14,7 +14,8 @@ import lightsoff_friez_version_console.CelluleLumineuse;
  * @author friez
  */
 public class GrilleDeCellules {
-private CelluleLumineuse[][] matriceCellules;  
+public CelluleLumineuse[][] matriceCellules;  
+public CelluleLumineuse[][] grille;
 
 public GrilleDeCellules(int lignes, int colonnes) {
     matriceCellules = new CelluleLumineuse[lignes][colonnes];
@@ -114,20 +115,48 @@ public void activerCellule(int ligne, int colonne) {  // Méthode pour activer u
         }
         return true;
     }
+    public boolean toutesLesCellulesEteintes() {  
+    for (int i = 0; i < matriceCellules.length; i++) {
+        for (int j = 0; j < matriceCellules[i].length; j++) {
+            if (matriceCellules[i][j].estAllumee()) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
     /**
      *
      * @return
      */
     @Override
-public String toString() {
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < matriceCellules.length; i++) {
-        for (int j = 0; j < matriceCellules[i].length; j++) {
-            sb.append(matriceCellules[i][j].estAllumee() ? "X" : "O").append(" ");
-        }
-        sb.append("\n");
+    public String toString() {
+        int lignes = matriceCellules.length;
+    int colonnes = matriceCellules[0].length;
+
+    StringBuilder builder = new StringBuilder();
+
+    // Afficher les indices de colonnes
+    builder.append("  ");
+    for (int i = 0; i < colonnes; i++) {
+        builder.append(" " + i);
     }
-    return sb.toString();
+    builder.append("\n");
+
+    // Afficher la grille avec les indices de lignes
+    for (int i = 0; i < lignes; i++) {
+        builder.append(i + " ");
+        for (int j = 0; j < colonnes; j++) {
+            if (matriceCellules[i][j].estAllumee()) {
+                builder.append(" X");
+            } else {
+                builder.append(" O");
+            }
+        }
+        builder.append("\n");
+    }
+
+    return builder.toString();
 }
 }
